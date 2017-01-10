@@ -13,6 +13,7 @@
 		22464D311E24C3D300935CC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22464D2F1E24C3D300935CC0 /* Main.storyboard */; };
 		22464D331E24C3D300935CC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22464D321E24C3D300935CC0 /* Assets.xcassets */; };
 		22464D361E24C3D300935CC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22464D341E24C3D300935CC0 /* LaunchScreen.storyboard */; };
+		D41E3CD07DF9C4D696361505 /* Pods_SlientPaste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21313C9335EF66692478DD9 /* Pods_SlientPaste.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,9 @@
 		22464D351E24C3D300935CC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22464D371E24C3D300935CC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22464D3D1E24C3DD00935CC0 /* SlientPaste.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlientPaste.entitlements; sourceTree = "<group>"; };
+		24EC8B090D2DC7BC87B50F48 /* Pods-SlientPaste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlientPaste.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlientPaste/Pods-SlientPaste.release.xcconfig"; sourceTree = "<group>"; };
+		CC130B0E2939E73467F63685 /* Pods-SlientPaste.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlientPaste.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlientPaste/Pods-SlientPaste.debug.xcconfig"; sourceTree = "<group>"; };
+		D21313C9335EF66692478DD9 /* Pods_SlientPaste.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlientPaste.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,17 +38,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D41E3CD07DF9C4D696361505 /* Pods_SlientPaste.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FB7FD4A382297F873548B02 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC130B0E2939E73467F63685 /* Pods-SlientPaste.debug.xcconfig */,
+				24EC8B090D2DC7BC87B50F48 /* Pods-SlientPaste.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		22464D1A1E24C3D300935CC0 = {
 			isa = PBXGroup;
 			children = (
 				22464D251E24C3D300935CC0 /* SlientPaste */,
 				22464D241E24C3D300935CC0 /* Products */,
+				0FB7FD4A382297F873548B02 /* Pods */,
+				2BB77607C6F01FBBB7BA6B43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +97,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2BB77607C6F01FBBB7BA6B43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D21313C9335EF66692478DD9 /* Pods_SlientPaste.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -88,9 +112,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22464D3A1E24C3D300935CC0 /* Build configuration list for PBXNativeTarget "SlientPaste" */;
 			buildPhases = (
+				7A41840A51BD90EE86624CE5 /* [CP] Check Pods Manifest.lock */,
 				22464D1F1E24C3D300935CC0 /* Sources */,
 				22464D201E24C3D300935CC0 /* Frameworks */,
 				22464D211E24C3D300935CC0 /* Resources */,
+				C6F3734DD5FCA02E9C9886A8 /* [CP] Embed Pods Frameworks */,
+				7EC4CADFBDB2C5DA30FF9006 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,6 +182,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A41840A51BD90EE86624CE5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7EC4CADFBDB2C5DA30FF9006 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlientPaste/Pods-SlientPaste-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6F3734DD5FCA02E9C9886A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlientPaste/Pods-SlientPaste-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		22464D1F1E24C3D300935CC0 /* Sources */ = {
@@ -281,6 +356,7 @@
 		};
 		22464D3B1E24C3D300935CC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC130B0E2939E73467F63685 /* Pods-SlientPaste.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SlientPaste/SlientPaste.entitlements;
@@ -295,6 +371,7 @@
 		};
 		22464D3C1E24C3D300935CC0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24EC8B090D2DC7BC87B50F48 /* Pods-SlientPaste.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SlientPaste/SlientPaste.entitlements;
