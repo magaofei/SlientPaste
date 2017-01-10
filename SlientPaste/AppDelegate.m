@@ -17,6 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self registerPush];
     return YES;
 }
 
@@ -47,5 +49,52 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+#pragma mark - Push
+
+
+- (void)registerPush {
+    // iOS8 以后
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound categories:nil]];
+    } else {
+        // iOS7 及之前
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound];
+    }
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // 去掉先后尖括号和中间的空格
+    NSString *token = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"DeviceToken string, %@", token);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    UIPasteboard *pastedBoard = [UIPasteboard generalPasteboard];
+    // 静默通知还是普通推送
+    if ([userInfo objectForKey:@"content"]) {
+        
+        NSString *s = [userInfo objectForKey:@"content"];
+        [pastedBoard setString:s];
+    } else {
+        
+        if ([userInfo objectForKey:@"aps"]) {
+            if ([[userInfo objectForKey:@"aps"] objectForKey:@"alert"]) {
+                NSString *s = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+                [pastedBoard setString:s];
+            }
+        }
+        
+        
+    }
+    
+    
+}
 
 @end

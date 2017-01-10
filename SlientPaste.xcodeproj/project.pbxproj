@@ -26,6 +26,7 @@
 		22464D321E24C3D300935CC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22464D351E24C3D300935CC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22464D371E24C3D300935CC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22464D3D1E24C3DD00935CC0 /* SlientPaste.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SlientPaste.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		22464D251E24C3D300935CC0 /* SlientPaste */ = {
 			isa = PBXGroup;
 			children = (
+				22464D3D1E24C3DD00935CC0 /* SlientPaste.entitlements */,
 				22464D291E24C3D300935CC0 /* AppDelegate.h */,
 				22464D2A1E24C3D300935CC0 /* AppDelegate.m */,
 				22464D2C1E24C3D300935CC0 /* ViewController.h */,
@@ -112,6 +114,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = N5G28WF2Y2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -273,8 +283,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SlientPaste/SlientPaste.entitlements;
 				DEVELOPMENT_TEAM = N5G28WF2Y2;
 				INFOPLIST_FILE = SlientPaste/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.magaofei.SlientPaste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -285,8 +297,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SlientPaste/SlientPaste.entitlements;
 				DEVELOPMENT_TEAM = N5G28WF2Y2;
 				INFOPLIST_FILE = SlientPaste/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.magaofei.SlientPaste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
